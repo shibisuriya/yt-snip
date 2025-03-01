@@ -1,1 +1,2 @@
-DOWNLOAD_DIRECTORY_NAME = "yt-snips"
+YT_SNIPS = "yt-snips"
+TEMPORARY_DOWNLOAD_DIRECTORY = "temporary-download-directory"

@@ -1,12 +1,7 @@
 import argparse
-import subprocess
 from helpers import download_youtube_video
-
-
-def download_video(url):
-    # Command to download the video using yt-dlp
-    command = ["yt-dlp", url]
-    subprocess.run(command)
+from constants import YT_SNIPS, TEMPORARY_DOWNLOAD_DIRECTORY
+import os
 
 
 def main():
@@ -30,10 +25,20 @@ def main():
     )
 
     args = parser.parse_args()
+    print(args)
 
     try:
-        download_youtube_video(args.url)
-    except Exception as e:
+        if not args.start and not args.end:
+            download_youtube_video(args.url, os.path.join("./", YT_SNIPS))
+        else:
+            download_youtube_video(args.url, os.path.join("./", TEMPORARY_DOWNLOAD_DIRECTORY))
+            if not args.start:
+                # Assume 00:00:00 as the start time.
+            else not args.end
+                # Assume 00:00:00 as the start time.
+            else not args.end
+
+    except Exception:
         print("Downloading failed!")
 
 

@@ -1,12 +1,15 @@
 import os
 import yt_dlp
-from constants import DOWNLOAD_DIRECTORY_NAME
+from constants import YT_SNIPS, TEMPORARY_DOWNLOAD_DIRECTORY
 
 
-def download_youtube_video(url, format="best"):
-    output_path = os.path.join("./", DOWNLOAD_DIRECTORY_NAME)
+def download_youtube_video(
+    url,
+    output_dir=os.path.join("./", TEMPORARY_DOWNLOAD_DIRECTORY),
+    format="best",
+):
     ydl_opts = {
-        "outtmpl": f"{output_path}/%(title)s.%(ext)s",  # Save with the video title
+        "outtmpl": f"{output_dir}/%(title)s.%(ext)s",  # Save with the video title
         "format": format,  # Video format
     }
 
